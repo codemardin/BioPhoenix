@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioPhoenix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #0ff;
+            --neon-magenta: #f0f;
+            --cyber-purple: #7024d4;
+            --matrix-green: #00ff9d;
+            --dark-bg: #0a0a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: #fff;
+            font-family: 'Exo 2', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .cyber-glitch {
+            text-shadow: 3px 3px 0 var(--neon-magenta),
+                        -3px -3px 0 var(--neon-cyan);
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 0 var(--neon-magenta), -2px -2px 0 var(--neon-cyan); }
+            50% { text-shadow: -3px 1px 0 var(--neon-magenta), 3px -1px 0 var(--neon-cyan); }
+            100% { text-shadow: 2px 2px 0 var(--neon-magenta), -2px -2px 0 var(--neon-cyan); }
+        }
+
+        header {
+            padding: 1.5rem;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--neon-cyan);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, 
+                rgba(112, 36, 212, 0.2) 0%, 
+                rgba(10, 10, 26, 1) 70%);
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cyber-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cyber-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent, 
+                var(--neon-cyan),
+                transparent, 
+                var(--neon-magenta));
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cyber-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px var(--neon-magenta);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 8rem 2rem;
+            min-height: 100vh;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hologram-text {
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-magenta));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo cyber-glitch">BioPhoenix</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Where Ability Meets Possibility</h1>
+                <p class="hologram-text">Next-Generation Enhancements for Superhuman Evolution</p>
+           </div>
+    </section>
+
+    <section id="about">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 class="hologram-text">About BioPhoenix</h2>
+            <div class="cyber-card" style="margin: 2rem 0; padding: 2rem;">
+                   <img src="https://img.freepik.com/premium-photo/artificial-intelligence-brain-with-neural-network-generative-ai_1301623-870.jpg;">
+            <p><strong>Our Mission:</strong> "Rebuilding Humanity, One Cyborg at a Time — BioPhoenix: Pioneering the Future of Human Evolution Since 2025."</p>
+                <br>
+                <p>Welcome to BioPhoenix</p>
+                <p>Redefining Life with Next-Gen Cyborg Parts</p>
+                <br>
+                <p>Founded in 2025, BioPhoenix is where human biology meets advanced technology. We specialize in high-performance cyborg body parts—designed not only to restore lost function but to unlock entirely new levels of strength, precision, and adaptability.</p>
+                <br>
+                <p>From biomechanical limbs to AI-enhanced vision systems and neural-linked implants, our creations are more than replacements. They are upgrades. Every product is crafted with cutting-edge materials, seamless neural integration, and a focus on personalization—built to fit your body and elevate your life.</p>
+                <br>
+                <p>At BioPhoenix, we believe evolution is no longer limited to nature. Our mission is to help individuals rise beyond their physical limits and become something more. Whether you’re overcoming injury, enhancing your abilities, or seeking a new way forward, we’re here to help you rise—stronger, faster, smarter.</p>
+                <br>
+                <p>Our name says it all: BioPhoenix. Like the mythical phoenix rising from the ashes, our technology gives people the power to be reborn—through innovation, resilience, and transformation.</p>
+                <br>
+                <p>Welcome to the future of the human body.</p>   </div>
+</section>
+
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="cyber-grid">
+            <!-- Product 1 -->
+            <div class="cyber-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMV7p2PaUzPTK6Q7kR0w882ioZUa-3KQvBloYqZ7k_gJ3tOlJUXpZoFcUlYC-Ix4DinHM&usqp=CAU" class="product-image" alt="AetherMind HALO">
+                <h3 class="hologram-text"> AetherMind HALO</h3>
+                <p>AetherMind HALO is a levitating neural interface that revolutionizes human-machine interaction. Hovering just above the skull using magnetic suspension, it reads brainwaves to enable seamless, thought-controlled access to drones, devices, and digital systems. Linked to the AetherNet, it allows users to upload, download, and process information directly through their consciousness. Equipped with emotion-responsive AI, the HALO enhances focus, calms stress, and adapts in real-time. It serves as both a mental assistant and a gateway to the cloud, making communication and control instantaneous. AetherMind HALO is the next evolution in merging human intuition with advanced artificial intelligence.</p>
+                <div style="margin: 1rem 0; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));"></div>
+                <p class="hologram-text">₵12,999</p>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="cyber-card">
+                <img src="https://images.stockcake.com/public/9/6/0/96061bd9-d499-4ccf-8943-e1ed2e0f0921_large/cybernetic-spine-enhancement-stockcake.jpg" class="product-image" alt="Gravpulse Spine Vortex">
+                <h3 class="hologram-text">Gravpulse Spine Vortex</h3>
+                <p>Gravpulse Spine Vortex is a revolutionary spinal enhancement engineered with anti-gravity cores and quantum-threaded alloys, granting users unmatched agility and control over gravitational forces. Embedded deep within the body’s core, it stabilizes balance, enhances reflexes, and enables gravity manipulation for vertical mobility, zero-G adaptation, and high-impact resistance. The Vortex syncs with neural commands, allowing the user to walk on walls, slow descents, or launch into rapid aerial maneuvers. Its internal AI constantly adjusts gravitational pull based on environment and motion. Sleek, durable, and nearly indestructible, the Gravpulse Spine Vortex transforms the human body into a dynamic, gravity-defying force of nature.</p>
+                <div style="margin: 1rem 0; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));"></div>
+                <p class="hologram-text">₵18,999</p>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="cyber-card">
+                <img src="https://media.istockphoto.com/id/1479180033/photo/digital-eye-ai-artificial-intelligence-digital-concept.jpg?s=612x612&w=0&k=20&c=5s1tl4bpMIVEv4g7Fckl2i26mfs2Rx-LzCtdaqumsz8=" class="product-image" alt="Vantablade Iris V7 Ω">
+                <h3 class="hologram-text">Vantablade Iris V7 Ω</h3>
+                <p>Vantablade Iris V7 is a next-gen ocular implant crafted from ultra-black nanomaterials that absorb and bend light, enabling stealth through adaptive camouflage vision. This obsidian-toned eye enhances perception with retina-linked targeting, allowing users to lock onto moving objects with surgical precision. It also features deep-learning emotional analysis, reading micro-expressions and emotional cues in real-time to anticipate intentions. With multiple visual modes—thermal, night, and zoom—the V7 adapts to any environment. Thought-controlled and seamlessly integrated with neural pathways, the Vantablade Iris V7 is not just a vision upgrade—it’s a tactical advantage for those who live in the shadows and think in light.</p>
+                <div style="margin: 1rem 0; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));"></div>
+                <p class="hologram-text">₵22,999</p>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="cyber-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpey_-DuZw_xblrYyhaRdjMWqANKc3oBZvbJuFg0lLJ9rCS9owjeZ6HGMxnQaJnxvfktc&usqp=CAU" class="product-image" alt="ChronoLung Aeon Core">
+                <h3 class="hologram-text">ChronoLung Aeon Core</h3>
+                <p>ChronoLung Aeon Core is a futuristic respiratory system infused with time-dilation technology and adaptive nanofilters. Designed to regulate not only breath but the perception of time, it allows the user to slow internal processes during high-stress or high-speed scenarios, granting a tactical edge in combat or emergencies. Capable of filtering toxins, radiation, and even vacuum exposure, the Aeon Core makes survival possible in extreme or alien environments. It adjusts oxygen flow in sync with emotional and physical demands, optimizing stamina and clarity. With chrono-sync abilities, users can stretch seconds into strategic moments, making each breath a calculated advantage in time.</p>
+                <div style="margin: 1rem 0; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));"></div>
+                <p class="hologram-text">₵29,999</p>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="cyber-card">
+                <img src="https://images.stockcake.com/public/c/8/0/c801018a-1379-44ed-b028-5399333d86a5_large/future-human-technology-stockcake.jpg" class="product-image" alt="Zephyrkin Armature-3">
+                <h3 class="hologram-text">Zephyrkin Armature-3</h3>
+                <p>Zephyrkin Armature-3 is a next-gen bionic limb engineered for agility, precision, and aerial adaptability. Forged from memory alloys and lightweight graphene composites, it offers unmatched strength without sacrificing speed. Integrated micro-airfoil stabilizers and directional thrusters allow the user to glide, dash mid-air, or land silently from great heights. Neural-linked to the user’s cortex, every movement is executed with perfect synchronization and reaction time. The Armature-3 also features modular weapon ports, haptic feedback, and shape-memory technology that adapts to different tasks or combat styles. Whether scaling walls, performing high-speed strikes, or navigating hostile environments, it transforms its user into a blur of controlled force.</p>
+                <div style="margin: 1rem 0; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));"></div>
+                <p class="hologram-text">₵35,999</p>
+            </div>
+          
+       <div class="cyber-card">
+                <img src="https://images.stockcake.com/public/1/8/d/18d07beb-e9b0-49ce-b231-fa757b864ec7_medium/digital-being-awakens-stockcake.jpg" class="product-image" alt="SolSync Dermis AURA">
+                <h3 class="hologram-text">SolSync Dermis AURA</h3>
+                <p>SolSync Dermis AURA is a cutting-edge bionic skin system that seamlessly integrates with the human body, offering advanced regenerative capabilities and adaptive functionality. This synthetic dermis is engineered to respond dynamically to environmental stimuli, providing real-time healing and protection. Its self-healing properties enable rapid recovery from abrasions and minor injuries, mimicking the natural skin's ability to repair itself. Additionally, the SolSync Dermis AURA is equipped with sensors that monitor physiological conditions, allowing for personalized health assessments and interventions. Its lightweight and flexible design ensure comfort and durability, making it an ideal solution for individuals seeking enhanced resilience and adaptability in their daily lives.</p>
+                <div style="margin: 1rem 0; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));"></div>
+                <p class="hologram-text">₵18,999</p>
+            </div>
+ </div>
+    </section>
+
+    <section id="contact">
+        <div class="cyber-card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h2 class="hologram-text">Contact Us</h2>
+            <div style="margin: 2rem 0;">
+                <p>Founder & Web Developer: S. M. Mardin Rahman</p>
+                <p>Notre Dame College</p>
+                 <p>Phone: 01929763056</p>
+              <p>Email: s.m.mardin2009@gmail.com</p>
+            </div>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button style="background: var(--neon-cyan); color: black; padding: 1rem 2rem; border: none; cursor: pointer;">Schedule Consultation</button>
+                <button style="background: var(--neon-magenta); color: black; padding: 1rem 2rem; border: none; cursor: pointer;">Request Catalog</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic card hover effect
+        document.querySelectorAll('.cyber-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.transform = `perspective(1000px) rotateX(${-(y - rect.height/2)/20}deg) rotateY(${(x - rect.width/2)/20}deg) translateY(-10px)`;
+                card.style.boxShadow = `0 0 30px ${x > rect.width/2 ? 'var(--neon-magenta)' : 'var(--neon-cyan)'}`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'none';
+                card.style.boxShadow = '0 0 30px var(--neon-magenta)';
+            });
+        });
+
+        // Glitch effect intensity based on mouse movement
+        document.addEventListener('mousemove', (e) => {
+            const intensity = (e.clientX / window.innerWidth) * 5;
+            document.documentElement.style.setProperty('--glitch-intensity', `${intensity}px`);
+        });
+    </script>
+</body>
+</html>
